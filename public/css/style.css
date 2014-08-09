@@ -79,6 +79,9 @@
 .p10 {
     padding: 10px;
 }
+.p5 {
+    padding: 5px;
+}
 .ml10 {
     margin-left: 10px;
 }
@@ -118,4 +121,10 @@ a:visited {
 }
 .fail {
     color: red;
+}
+.status {
+    font: normal 15px/17px tahoma,arial,verdana,sans-serif;
+}
+.wait {
+    color: darkorange;
 }

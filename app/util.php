@@ -196,7 +196,7 @@ function dfs_inner($field, $i, $j, &$words, &$prefixes, &$count, &$trace, $lette
     if(isset($words[$trace[0]])) {
         //echo "x = " . $letter[0] . ", y = " . $letter[1] . ", letter = " . $letter[2] . ", word = " . $trace[0] . "<br/>";
         //echo "sizeof = " . sizeof($founded[1]) . " " . sizeof($trace[1]) . "<br/>";
-        if(sizeof($founded[1][1]) < sizeof($trace[1]) && !isset($pool[$trace[0]])) {
+        if((sizeof($founded) == 0 || sizeof($founded[1][1]) < sizeof($trace[1])) && !isset($pool[$trace[0]])) {
             $founded = array($letter, $trace);
         }
         //$founded[] = array($letter, $trace);

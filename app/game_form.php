@@ -15,7 +15,7 @@ if(!$data) {
     die();
 }
 
-if(isset($_POST["status"]) && $data["status"] == STATUS_WAIT_USER) {
+if(isset($_POST["giveup"]) && $data["status"] == STATUS_WAIT_USER) {
     $data["status"] = STATUS_FAIL;
     put($session_id, $data, true);
     return;

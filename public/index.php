@@ -362,8 +362,10 @@ session_start();
                 $.ajax({
                     type: 'POST',
                     url: '../app/game_form.php',
+                    data: { giveup: true },
                     success: function(response){
                         setStatus(statusFail);
+                        isValid();
                     }
                 });
             });
@@ -425,6 +427,8 @@ session_start();
             appendWord($('#ailist'), aiList[i]);
         }
 
+        data = [[], []];
+        isValid();
         $('#pregame').hide();
         $('#game').fadeIn();
         $('#keyboard').fadeIn();

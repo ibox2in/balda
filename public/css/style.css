@@ -1,0 +1,121 @@
+.ma {
+    margin: 0 auto;
+}
+.base {
+    max-width: 720px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.cntr {
+    text-align: center;
+}
+.marked {
+    background-color: #EFEFEF;
+}
+.available {
+    background-color: #dff0d8;
+}
+.hover {
+    background-color: #fbeed5;
+}
+.click {
+    background-color: #fbeed5;
+}
+
+.table {
+    border: 1pt solid #DDDDDD;
+}
+.td {
+    width: 80px;
+    height: 80px;
+    font: normal 48px/50px tahoma,arial,verdana,sans-serif;
+    text-align: center;
+    cursor: default;
+    border: 1pt solid #DDDDDD;
+}
+.bl {
+    border-left: 1pt solid #000000;
+    padding-left: 20px;
+}
+.br {
+    border-right: 1pt solid #000000;
+    padding-right: 20px;
+}
+.normal {
+    font: normal 11px/13px tahoma,arial,verdana,sans-serif;
+}
+.keyboard {
+    font: normal 17px/19px tahoma,arial,verdana,sans-serif;
+}
+.medium {
+    font: normal 32px/34px tahoma,arial,verdana,sans-serif;
+}
+.hr {
+    height:0;
+    color:#DDDDDD;
+    background-color:#DDDDDD;
+    border-top:none;
+    border-bottom:#DDDDDD solid 1px;
+}
+.mt50 {
+    margin-top: 50px;
+}
+.mt20 {
+    margin-top: 20px;
+}
+.mb20 {
+    margin-bottom: 20px;
+}
+.mt40 {
+    margin-top: 40px;
+}
+.p20 {
+    padding: 20px;
+}
+.p10 {
+    padding: 10px;
+}
+.ml10 {
+    margin-left: 10px;
+}
+.mr10 {
+    margin-right: 10px;
+}
+.vam {
+    vertical-align: middle;
+}
+.fw {
+    width: 100%;
+}
+a:link {
+    text-decoration: none;
+    color: black;
+}
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+.link {
+    text-decoration: underline;
+    cursor: hand;
+}
+.block {
+    display: inline-block;
+}
+.drag {
+    cursor: hand;
+}
+.minor {
+    color: #808080;
+    cursor: default;
+}
+.win {
+    color: #5bb75b;
+}
+.fail {
+    color: red;
+}

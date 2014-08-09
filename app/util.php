@@ -273,7 +273,8 @@ function get_connection() {
 //}
 
 function gets($string, $index) {
-    return substr($string, 0, $index * 2);
+    preg_match_all('/./us', $string, $ar);
+    return join('', array_slice($ar[0], 0, $index));
 }
 
 function getr($string) {
@@ -282,7 +283,8 @@ function getr($string) {
 }
 
 function getl($string) {
-    return strlen($string) / 2;
+    preg_match_all('/./us', $string, $ar);
+    return sizeof($ar[0]);
 }
 
 //function contains($string, $char) {

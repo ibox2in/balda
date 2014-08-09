@@ -16,6 +16,7 @@
  * User: Kim
  */
 require_once("../app/util.php");
+session_start();
 ?>
 <script type="text/javascript">
     var data = [[], []];
@@ -356,7 +357,7 @@ require_once("../app/util.php");
     function setStatus(status) {
         currentStatus = status;
         if(status == statusUser) {
-            $('#status').css("opacity", 0).html('Ваш ход. Всегда можно <span class="link" id="giveup">сдаться</span>').fadeTo(200, 1);
+            $('#status').css("opacity", 0).html('<span class="wait">Ваш ход.</span> Всегда можно <span class="link" id="giveup">сдаться</span>').fadeTo(200, 1);
             $('#status').children('.link').click(function(){
                 $.ajax({
                     type: 'POST',
@@ -437,16 +438,16 @@ require_once("../app/util.php");
         <?php
         $alphabet = get_alphabet();
         foreach($alphabet as $key => &$val) {
-            echo '<td class="drag p10">' . $val . '</td>';
+            echo '<td class="drag p5">' . $val . '</td>';
         }
         ?>
     </tr></tbody></table>
 <div class="ma base normal">
 <div class="mt50">
 
-    <div class="cntr link" id="pregame"><?php echo (game_exists(0) ? _("Продолжить игру") : _("Начать игру")) ?></div>
+    <div class="cntr link" id="pregame"><?php echo (game_exists(session_id()) ? _("Продолжить игру") : _("Начать игру")) ?></div>
     <div class="cntr" id="game" style="display: none">
-        <div id="status" class="mb20"></div>
+        <div id="status" class="mb20 status"></div>
         <table class="ma" border="0" cellspacing="0" cellpadding="0" width="410px">
             <tbody>
             <tr>

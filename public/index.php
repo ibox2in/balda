@@ -43,7 +43,6 @@ session_start();
 
                 //console.log($(ui.draggable));
                 if($(this).hasClass('available') && currentStatus == statusUser) {
-                    $(this).html($(ui.draggable).html());
                     for(var i = 0; i < data[1].length && data[0].length > 0; i++) {
                         if(data[1][i][0] == data[0][0] && data[1][i][1] == data[0][1]) {
                             clearTrace(data[1].slice(i, data[1].length), true);
@@ -52,6 +51,7 @@ session_start();
                     }
                     getCell(data[0][0], data[0][1]).html('');
                     data[0] = [getX($(this)), getY($(this)), $(ui.draggable).html()];
+                    $(this).html($(ui.draggable).html());
                 }
 
                 //console.log(data);
@@ -385,6 +385,18 @@ session_start();
             });
         } else if(status == statusFail) {
             $('#status').css("opacity", 0).html('<span class="fail">Поражение.</span> Можно сыграть <span class="link">еще раз</span>').fadeTo(200, 1);
+            $('#status').children('.link').click(function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '../app/start_form.php',
+                    data: { restart: true },
+                    success: function(response){
+                        onStart(response);
+                    }
+                });
+            });
+        } else if(status == statusDraw) {
+            $('#status').css("opacity", 0).html('<span class="draw">Ничья.</span> Можно сыграть <span class="link">еще раз</span>').fadeTo(200, 1);
             $('#status').children('.link').click(function(){
                 $.ajax({
                     type: 'POST',

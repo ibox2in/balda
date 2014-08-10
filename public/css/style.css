@@ -111,6 +111,7 @@ a:visited {
 }
 .drag {
     cursor: hand;
+    z-index: 2;
 }
 .minor {
     color: #808080;

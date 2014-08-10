@@ -413,6 +413,50 @@ session_start();
                     }
                 });
             });
+        } else if(status == statusIdle) {
+            $('#status').css("opacity", 0).html('<span class="link">Обновить</span>').fadeTo(200, 1);
+            $('#status').children('.link').click(function(){
+                setStatus(statusAI);
+                $.ajax({
+                    type: 'POST',
+                    data: { wait: true },
+                    url: '../app/game_form.php',
+                    success: function(response){
+                        $('#spinner').hide();
+                        $('#submit').show();
+                        response = jQuery.parseJSON(response);
+                        if(response[0].length > 0) {
+                            var wordData = response[0];
+                            getCell(wordData[0][0], wordData[0][1]).html(wordData[0][2]);
+
+                            //console.log(wordData);
+                            for(var i = 0; i < wordData[1][1].length; i++) {
+                                var cell = getCell(wordData[1][1][i][0], wordData[1][1][i][1]);
+                                if(i > 0) {
+                                    renderTrace(cell, wordData[1][1][i - 1][0], wordData[1][1][i - 1][1]);
+                                }
+                            }
+                            setTimeout(function() {
+                                clearTrace(wordData[1][1], false);
+                            }, 1500);
+
+                            renderField();
+                            $('#aiscore').html(response[1][1]);
+                            $('#aiscore').hide();
+                            $('#aiscore').fadeIn();
+                            appendWord($('#ailist'), response[0][1][0]);
+                        }
+
+                        setStatus(response[2]);
+                        isValid();
+                    },
+                    error: function(response) {
+                        if(response.status == 418) {
+                            setStatus(statusWin);
+                        }
+                    }
+                });
+            });
         }
     }
 

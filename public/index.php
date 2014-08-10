@@ -364,6 +364,7 @@ session_start();
         currentStatus = status;
         if(status == statusUser) {
             $('#status').css("opacity", 0).html('<span class="wait">Ваш ход.</span> Всегда можно <span class="link" id="giveup">сдаться</span>').fadeTo(200, 1);
+            $('#field').fadeTo(200, 1);
             $('#status').children('.link').click(function(){
                 $.ajax({
                     type: 'POST',
@@ -379,6 +380,7 @@ session_start();
             $('#status').css("opacity", 0).html('Ждем ответа противника...').fadeTo(200, 1);
         } else if(status == statusWin) {
             $('#status').css("opacity", 0).html('<span class="win">Победа!</span> Можно сыграть <span class="link">еще раз</span>').fadeTo(200, 1);
+            $('#field').fadeTo(200, 0.5);
             $('#status').children('.link').click(function(){
                 $.ajax({
                     type: 'POST',
@@ -391,6 +393,7 @@ session_start();
             });
         } else if(status == statusFail) {
             $('#status').css("opacity", 0).html('<span class="fail">Поражение.</span> Можно сыграть <span class="link">еще раз</span>').fadeTo(200, 1);
+            $('#field').fadeTo(200, 0.5);
             $('#status').children('.link').click(function(){
                 $.ajax({
                     type: 'POST',
@@ -403,6 +406,7 @@ session_start();
             });
         } else if(status == statusDraw) {
             $('#status').css("opacity", 0).html('<span class="draw">Ничья.</span> Можно сыграть <span class="link">еще раз</span>').fadeTo(200, 1);
+            $('#field').fadeTo(200, 0.5);
             $('#status').children('.link').click(function(){
                 $.ajax({
                     type: 'POST',

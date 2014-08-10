@@ -94,6 +94,9 @@ session_start();
         }
 
         $(".td").singleDoubleClick(function() {
+            if(currentStatus != statusUser) {
+                return;
+            }
 
             if(!$.trim($(this).html())) {
                 return;
@@ -140,6 +143,9 @@ session_start();
 
             isValid();
         }, function() {
+            if(currentStatus != statusUser) {
+                return;
+            }
             var td = $(this);
             if(!td.html() || !(data[0][0] == getX(td) && data[0][1] == getY(td))) {
                 return;

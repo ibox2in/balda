@@ -13,7 +13,7 @@ $data = get($session_id);
 
 $_POST = array_filter($_POST);
 
-if(!$data || isset($_POST["restart"])) {
+if(!$data || (isset($_POST["restart"]) && ($data["status"] == STATUS_WIN || $data["status"] == STATUS_FAIL || $data["status"] == STATUS_DRAW))) {
     $start_words = unserialize(file_get_contents('../resources/volumes/volume_size'));
     $word = $start_words[array_rand($start_words)];
     $data = array(

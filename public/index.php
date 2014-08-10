@@ -414,7 +414,7 @@ session_start();
                 });
             });
         } else if(status == statusIdle) {
-            $('#status').css("opacity", 0).html('<span class="link">Обновить</span>').fadeTo(200, 1);
+            $('#status').css("opacity", 0).html('Нужно <span class="link">обновить</span>').fadeTo(200, 1);
             $('#status').children('.link').click(function(){
                 setStatus(statusAI);
                 $.ajax({

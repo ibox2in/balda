@@ -10,7 +10,7 @@
  */
 
 require_once("../app/util.php");
-
+return;
 set_time_limit(0);
 
 $words = array();
@@ -21,6 +21,7 @@ $fp = fopen('words.txt', 'r');
 while (!feof($fp)) {
     $line = fgets($fp);
     $words[] = trim($line);
+    echo $line . "<br/>";
 }
 fclose($fp);
 
